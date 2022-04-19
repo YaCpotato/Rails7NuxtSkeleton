@@ -1,0 +1,30 @@
+<div class="d-grid gap-3">
+  <% @articles.each do |article| %>
+    <div class="card bg-light border p-2">
+      <div class="card-header d-flex flex-row-reverse bd-highlight">
+        <div class="p-2 bd-highlight">
+        <i class="bi-cloud-lightning-fill"></i>
+        <%= link_to "速報", article_extra_news_send_path(id: article.id) %>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="title"><%= article.title %></h3>
+        <p class="card-text lh-base three-line-content">
+          <%= article.content %>
+        </p>
+        <hr>
+        <a href="#" class="card-link">詳細</a>
+        <%= link_to "編集", edit_article_path(id: article.id) %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<style>
+.three-line-content {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>
